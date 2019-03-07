@@ -123,16 +123,18 @@ ggplot(data = power) +
                           y = cox3_p_value_treatment,
                           color = "Cox (only treatment)")) +
   geom_line(mapping = aes(x = x,
-                          y = logit_p_value_treatment, color = "Logit")) +
-  geom_line(mapping = aes(x = x,
                           y = chi_square_p_value, color = "Chi Square")) +
+  geom_line(mapping = aes(x = x,
+                          y = logit_p_value_treatment, color = "Logit")) +
+  
   geom_line(mapping = aes(x = x, y = 0.05, color = "0.05")) +
   geom_line(mapping = aes(x = x, y = 0.8, color = "0.8")) + 
-  scale_color_viridis_d(name = "Method") +
+  scale_color_manual(name="Method",values = c("#000000","#000000","#003c00","#001cb2","#768fb8","#0fbdd2","#008000","#FF0000"))+
   xlab(label = "delta") +
   ylab(label = "Power") +
   ggtitle(label = "N = 200")
 # dev.off()
+
 
 epi_seizures <- ggplot(data = epilepsy) + 
   geom_density(mapping = aes(x = seizures_treatment, fill = 1)) + 
